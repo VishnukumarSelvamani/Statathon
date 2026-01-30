@@ -1,0 +1,26 @@
+.hacker-content {
+    padding: var(--spacing-md) 0;
+}
+
+.hacker-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hacker-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.status-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.status-value {
+    color: var(--success);
+    font-weight: 600;
+}

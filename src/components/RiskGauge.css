@@ -1,0 +1,154 @@
+.risk-gauge-container {
+    background: var(--surface-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.sub-section-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.re-id-risk-section {
+    flex: 1.5;
+}
+
+.gauge-flex-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.gauge-graphic-stats {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.stats-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 100px;
+    padding-bottom: 5px;
+}
+
+.stat-bar {
+    width: 25px;
+    border-radius: 2px;
+}
+
+.stat-bar.bar-1 {
+    height: 40%;
+    background-color: #1a73e8;
+}
+
+.stat-bar.bar-2 {
+    height: 75%;
+    background-color: #f29900;
+}
+
+.stat-bar.bar-3 {
+    height: 50%;
+    background-color: #137333;
+}
+
+.stat-bar.bar-4 {
+    height: 65%;
+    background-color: #c5221f;
+}
+
+.gauge-arc-wrapper {
+    position: relative;
+    width: 200px;
+    height: 120px;
+}
+
+.gauge-svg-arc {
+    width: 100%;
+    height: 100%;
+}
+
+.gauge-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.gauge-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #c5221f;
+    line-height: 1;
+}
+
+.gauge-label-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #c5221f;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 80%;
+    background-color: #eee;
+}
+
+.dp-mini-output-section {
+    flex: 1;
+}
+
+.dp-mini-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dp-mini-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mini-icon.blue {
+    color: #1a73e8;
+}
+
+.mini-icon-box {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f29900;
+    font-size: 14px;
+}
+
+.mini-label {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.mini-value {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.mini-value.red-text {
+    color: #c5221f;
+}
+
+.mini-value.blue-text {
+    color: #1a73e8;
+}

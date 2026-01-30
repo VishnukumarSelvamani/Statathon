@@ -1,0 +1,123 @@
+.filter-card {
+    background: white;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-border);
+    margin-bottom: 24px;
+}
+
+.filter-grid-formal {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-item label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neutral-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gov-select {
+    background: #ffffff;
+    border: 1px solid var(--neutral-border);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    color: var(--neutral-text);
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.gov-select:focus {
+    outline: none;
+    border-color: var(--gov-blue-brand);
+    box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+}
+
+.filter-action-row {
+    padding: 0 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.process-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 32px;
+}
+
+.process-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.card-header-with-info {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--neutral-light);
+}
+
+.card-header-with-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.results-count {
+    font-size: 0.85rem;
+    color: var(--neutral-muted);
+    font-weight: 600;
+    background: var(--neutral-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.download-icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--gov-blue-brand);
+    color: var(--gov-blue-brand);
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.download-icon-btn:hover {
+    background: var(--gov-blue-brand);
+    color: white;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.text-bold {
+    font-weight: 700;
+    color: var(--gov-blue-dark);
+}

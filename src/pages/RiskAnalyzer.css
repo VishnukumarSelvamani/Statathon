@@ -1,0 +1,151 @@
+/* Main Grid Layouts - Reused from Anonymization for consistency */
+.analyzer-main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.analyzer-bottom-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.table-section {
+    flex: 2;
+}
+
+.output-section {
+    flex: 1;
+}
+
+.bottom-row-panels {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.bottom-panel {
+    background: white;
+    border: 1px solid var(--neutral-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-standard);
+}
+
+.risk-score-panel {
+    flex: 2;
+}
+
+.dp-summary-panel {
+    flex: 1.2;
+}
+
+.bottom-panel h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neutral-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--neutral-light);
+}
+
+.risk-analysis-visual {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.arc-meter-container {
+    width: 200px;
+}
+
+.large-arc-meter {
+    position: relative;
+    width: 100%;
+}
+
+.meter-center {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meter-score {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gov-blue-dark);
+    line-height: 1;
+}
+
+.meter-status {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.meter-status.high {
+    color: var(--status-red);
+}
+
+.bar-chart-container {
+    flex: 1;
+    height: 100px;
+}
+
+/* DP Info Stack */
+.dp-info-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dp-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dp-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dp-label {
+    font-size: 0.8rem;
+    color: var(--neutral-muted);
+}
+
+.dp-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gov-blue-dark);
+}
+
+.dp-value small {
+    font-size: 0.8rem;
+    color: var(--neutral-muted);
+    font-weight: 400;
+}
+
+.dp-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gov-blue-brand);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.blue-icon {
+    color: var(--gov-blue-brand);
+}
+
+.orange-icon {
+    color: var(--status-orange);
+}

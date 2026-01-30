@@ -1,0 +1,46 @@
+.summary-card-horizontal {
+    background: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 24px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.summary-card-label {
+    color: #888;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-card-value-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.summary-card-value {
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.summary-card-value.status-orange {
+    color: #f39c12;
+}
+
+.dropdown-icon {
+    color: var(--text-muted);
+}

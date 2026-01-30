@@ -1,0 +1,121 @@
+.dataset-summary-card {
+    background: var(--surface-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.section-header-blue {
+    background-color: var(--gov-blue-primary);
+    color: white;
+    padding: 10px 16px;
+}
+
+.section-header-blue h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.dataset-summary-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.metrics-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.metric-row {
+    background: white;
+    border: 1px solid #eee;
+    padding: 12px 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.metric-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.metric-icon {
+    flex-shrink: 0;
+}
+
+.metric-item.high .metric-icon {
+    color: #c5221f;
+}
+
+.metric-item.low .metric-icon {
+    color: #137333;
+}
+
+.medium-badge {
+    background-color: #f29900;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.metric-value {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.metric-item.high .metric-value {
+    color: #c5221f;
+}
+
+.metric-item.medium .metric-value {
+    color: #f29900;
+}
+
+.metric-item.low .metric-value {
+    color: #137333;
+}
+
+.chart-column {
+    flex: 1;
+    border-left: 1px solid #f0f0f0;
+    padding-left: 20px;
+}
+
+.chart-wrapper {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 12px;
+    height: 100%;
+}
+
+.chart-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.legend-text {
+    font-size: 0.85rem;
+    color: #444;
+    font-weight: 600;
+}

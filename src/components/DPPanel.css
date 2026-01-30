@@ -1,0 +1,74 @@
+.dp-output-panel {
+    background: var(--surface-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+}
+
+.panel-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dp-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dp-icon {
+    flex-shrink: 0;
+}
+
+.dp-icon.orange {
+    color: #f29900;
+}
+
+.dp-icon.blue {
+    color: #1a73e8;
+}
+
+.dp-label {
+    font-size: 0.85rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.dp-value {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.dp-value.blue-text {
+    color: #1a73e8;
+}
+
+.export-report-btn {
+    margin-top: 10px;
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.export-report-btn:hover {
+    background-color: #1558b3;
+}

@@ -1,0 +1,68 @@
+.risk-assessment-card {
+    background: var(--surface-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+}
+
+.risk-assessment-content {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.risk-attr-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.risk-attr-row:last-child {
+    border-bottom: none;
+}
+
+.attr-icon-wrapper {
+    flex-shrink: 0;
+}
+
+.risk-attr-row.high .attr-icon-wrapper {
+    color: #c5221f;
+}
+
+.risk-attr-row.medium .attr-icon-wrapper {
+    color: #f29900;
+}
+
+.risk-attr-row.low .attr-icon-wrapper {
+    color: #137333;
+}
+
+.attr-content {
+    display: flex;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.attr-label {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.attr-text {
+    color: #c5221f;
+    /* Red for high risk values */
+    font-weight: 500;
+}
+
+.risk-attr-row.medium .attr-text {
+    color: #f29900;
+}
+
+.risk-attr-row.low .attr-text {
+    color: #137333;
+}

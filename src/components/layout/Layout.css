@@ -1,0 +1,35 @@
+/* Global Overrides and Fixes */
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dashboard-layout.full-width {
+    flex-direction: column;
+}
+
+.dashboard-view-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    margin-left: var(--sidebar-width);
+    transition: margin-left 0.3s ease;
+}
+
+.full-width .dashboard-view-content {
+    margin-left: 0;
+}
+
+.dashboard-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: var(--topbar-height);
+}
+
+.full-width .dashboard-scroll-area {
+    padding-top: var(--topbar-height);
+    /* Keep topbar height for scrolling */
+}

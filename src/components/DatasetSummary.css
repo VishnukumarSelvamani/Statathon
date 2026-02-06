@@ -119,3 +119,15 @@
     color: #444;
     font-weight: 600;
 }
+
+/* Scoped Nuclear Fix for Recharts Focus/Black Box Issue */
+.dataset-summary-card *:focus,
+.dataset-summary-card *:focus-visible,
+.dataset-summary-card .recharts-wrapper:focus,
+.dataset-summary-card .recharts-surface:focus,
+.dataset-summary-card path:focus,
+.dataset-summary-card g:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}

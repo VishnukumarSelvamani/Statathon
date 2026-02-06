@@ -26,6 +26,40 @@
   --shadow-standard: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
+/* Dark Mode Overrides */
+body.dark-mode {
+  --neutral-bg: #121212;
+  --neutral-light: #1e1e1e;
+  --neutral-border: #333333;
+  --neutral-text: #e0e0e0;
+  --neutral-muted: #a0a0a0;
+
+  --gov-blue-light: #0d1b2a;
+  --shadow-standard: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure Gov Blue stays authoritative even in dark mode */
+body.dark-mode .gov-btn-primary {
+  background: #1a73e8;
+  /* Slightly lighter for contrast */
+}
+
+body.dark-mode .gov-table {
+  background: var(--neutral-light);
+  border-color: var(--neutral-border);
+}
+
+body.dark-mode .gov-table th {
+  background: #132f4c;
+  color: #e0e0e0;
+  border-color: var(--neutral-border);
+}
+
+body.dark-mode .gov-table td {
+  border-color: var(--neutral-border);
+  color: #e0e0e0;
+}
+
 * {
   margin: 0;
   padding: 0;

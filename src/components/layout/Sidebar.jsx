@@ -7,9 +7,9 @@ import {
     Database,
     FileCheck,
     Bug,
-    LogOut,
-    Shield
+    LogOut
 } from 'lucide-react';
+import { ShadowSafeLogo } from '../ui/ShadowSafeLogo';
 import './Sidebar.css';
 
 export const Sidebar = () => {
@@ -23,7 +23,7 @@ export const Sidebar = () => {
         <aside className="sidebar">
             <div className="sidebar-header">
                 <div className="logo-section">
-                    <Shield size={24} className="logo-icon-shield" />
+                    <ShadowSafeLogo className="logo-icon-shield" style={{ width: '28px', height: '28px', color: 'white' }} />
                     <span className="logo-text">ShadowSafe NSS</span>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShadowSafeLogo } from '../components/ui/ShadowSafeLogo';
 import './Landing.css';
 
 export const Landing = () => {
@@ -10,7 +11,7 @@ export const Landing = () => {
         <div className="landing-page">
             <header className="landing-header">
                 <div className="landing-logo">
-                    <ShieldCheck size={28} className="logo-icon white-text" />
+                    <ShadowSafeLogo className="logo-icon" style={{ width: '32px', height: '32px', color: 'white' }} />
                     <span className="white-text">ShadowSafe NSS</span>
                 </div>
             </header>

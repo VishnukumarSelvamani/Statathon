@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { User, Settings, LogOut, FileText, Shield, HelpCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './ProfileDropdown.css';
 
 export const ProfileDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const navigate = useNavigate();
 
     // Mock user data
     const user = {
@@ -17,36 +19,46 @@ export const ProfileDropdown = () => {
 
     // Close dropdown when clicking outside
     useEffect(() => {
+        if (!isOpen) return;
+
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+        // Add slight delay to prevent immediate closure when opening
+        const timeoutId = setTimeout(() => {
+            document.addEventListener('mousedown', handleClickOutside);
+        }, 0);
+
+        return () => {
+            clearTimeout(timeoutId);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
 
     const menuItems = [
         {
             icon: <User size={18} />,
             label: 'My Profile',
-            action: () => console.log('Navigate to profile')
+            action: () => navigate('/profile')
         },
         {
             icon: <FileText size={18} />,
             label: 'My Activity',
-            action: () => console.log('Navigate to activity')
+            action: () => navigate('/login-activity')
         },
         {
             icon: <Shield size={18} />,
             label: 'Security Settings',
-            action: () => console.log('Navigate to security')
+            action: () => navigate('/settings')
         },
         {
             icon: <Settings size={18} />,
             label: 'Preferences',
-            action: () => console.log('Navigate to preferences')
+            action: () => navigate('/settings')
         },
         {
             icon: <HelpCircle size={18} />,

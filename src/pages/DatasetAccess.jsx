@@ -1,38 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, ChevronDown, Search, Loader2 } from 'lucide-react';
+import { useApi } from '../context/ApiContext';
 import './DatasetAccess.css';
 
 export const DatasetAccess = () => {
+    const { datasets, loadDatasets, isLoading } = useApi();
     const [isProcessing, setIsProcessing] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
-    const surveyTypes = [
-        "Periodic Labour Force Survey",
-        "Time Use Survey",
-        "Household Consumption Expenditure Survey",
-        "Annual Survey of Industries",
-        "Annual Survey of Unincorporated Sector Enterprises",
-        "Situation Assessment of Agri. Households / Land & Livestock Holdings",
-        "Multiple Indicator Survey"
-    ];
+    // Initial Load of Datasets (if not already loaded by Context)
+    useEffect(() => {
+        if (!datasets || datasets.length === 0) {
+            loadDatasets();
+        }
+    }, []);
 
-    const indianStates = [
-        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
-        "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
-        "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
-        "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
-        "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
-        "Uttar Pradesh", "Uttarakhand", "West Bengal"
-    ];
-
-    const years = Array.from({ length: 27 }, (_, i) => 2000 + i);
+    // Dynamic Filters derived from actual data
+    const surveyTypes = React.useMemo(() => [...new Set(datasets.map(d => d.surveyType || d.name?.split('_')[0]))].filter(Boolean), [datasets]);
+    const indianStates = React.useMemo(() => [...new Set(datasets.map(d => d.state))].filter(Boolean), [datasets]);
+    const years = React.useMemo(() => [...new Set(datasets.map(d => d.year))].filter(Boolean).sort((a, b) => b - a), [datasets]);
 
     const handleProcess = () => {
         setIsProcessing(true);
-        setTimeout(() => {
+        // Real data processing - no fake timeout
+        // In a real app with pagination, we would call an API. Here we refresh or filter.
+        loadDatasets().finally(() => {
             setIsProcessing(false);
             setShowResults(true);
-        }, 1200);
+        });
     };
 
     return (
@@ -88,7 +83,7 @@ export const DatasetAccess = () => {
                             ) : (
                                 <>
                                     <Search size={18} />
-                                    Process Datasets
+                                    Fetch Datasets
                                 </>
                             )}
                         </button>
@@ -96,13 +91,15 @@ export const DatasetAccess = () => {
                 </div>
 
                 {/* Section 2: Results Table */}
-                {showResults && (
-                    <div className="data-card shadow-sm animate-in">
-                        <div className="card-header-with-info">
-                            <h3>Available Datasets (Audit-Ready)</h3>
-                            <span className="results-count">5 Results Found</span>
-                        </div>
-                        <div className="card-body no-padding">
+                <div className="data-card shadow-sm animate-in">
+                    <div className="card-header-with-info">
+                        <h3>Available Datasets (Audit-Ready)</h3>
+                        <span className="results-count">{datasets.length} Results Found</span>
+                    </div>
+                    <div className="card-body no-padding">
+                        {isLoading ? (
+                            <div className="p-4 text-center">Loading datasets...</div>
+                        ) : (
                             <table className="gov-table">
                                 <thead>
                                     <tr>
@@ -115,50 +112,33 @@ export const DatasetAccess = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td className="text-bold">PLFS Annual 2024</td>
-                                        <td>Urban</td>
-                                        <td>Maharashtra</td>
-                                        <td>2024</td>
-                                        <td>45,000</td>
-                                        <td>
-                                            <button className="download-icon-btn" title="Download CSV">
-                                                <Download size={18} />
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="text-bold">PLFS Annual 2024</td>
-                                        <td>Rural</td>
-                                        <td>Maharashtra</td>
-                                        <td>2024</td>
-                                        <td>32,400</td>
-                                        <td>
-                                            <button className="download-icon-btn" title="Download CSV">
-                                                <Download size={18} />
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="text-bold">HCE Survey</td>
-                                        <td>Urban</td>
-                                        <td>Maharashtra</td>
-                                        <td>2023</td>
-                                        <td>28,500</td>
-                                        <td>
-                                            <button className="download-icon-btn" title="Download CSV">
-                                                <Download size={18} />
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    {datasets.length > 0 ? datasets.map((ds, idx) => (
+                                        <tr key={ds.id || idx}>
+                                            <td className="text-bold">{ds.name || 'Unknown Survey'}</td>
+                                            <td>{ds.sector || '-'}</td>
+                                            <td>{ds.state || '-'}</td>
+                                            <td>{ds.year || '-'}</td>
+                                            <td>{ds.rowCount || 0}</td>
+                                            <td>
+                                                <button className="download-icon-btn" title="Download CSV">
+                                                    <Download size={18} />
+                                                    Download
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )) : (
+                                        /* Fallback row if no API data yet */
+                                        <tr>
+                                            <td colSpan="6" className="text-center text-muted p-4">
+                                                No datasets found via API.
+                                            </td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
-                        </div>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
